@@ -11,6 +11,7 @@ const RecipeItems = db.define('recipe_items', {
     type: Sequelize.INTEGER,
     allowNull: false
   }
+  // Must add foreign key called RecipeId
 })
 
 module.exports = RecipeItems
