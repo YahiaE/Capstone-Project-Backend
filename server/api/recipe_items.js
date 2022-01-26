@@ -3,7 +3,7 @@ const RecipeItems = require('../db/recipe_items')
 
 
 
-router.get('/list/:recipeId', async (req, res) => { // Get all recipe items of specific recipe
+router.get('/list/:recipeId', async (req, res) => { // Get all recipe items of specific recipe through id
     try {
       const recipe_items = await RecipeItems.findAll({
         where: {
@@ -16,7 +16,7 @@ router.get('/list/:recipeId', async (req, res) => { // Get all recipe items of s
     }
 })
 
-router.get('/', async(req, res) => { // Get recipe items by id
+router.get('/', async(req, res) => { // Get all recipe items
     try {
       const recipe_item = await RecipeItems.findAll();
       res.send(recipe_item)
@@ -25,7 +25,7 @@ router.get('/', async(req, res) => { // Get recipe items by id
     }
 }) 
 
-router.post('/', async(req, res) => { // Create a recipe item
+router.post('/', async(req, res) => { // Post a recipe item
     try {
       const newRecipeItem = await RecipeItems.create(req.body)
       res.json(newRecipeItem)
