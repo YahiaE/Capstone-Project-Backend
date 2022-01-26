@@ -11,7 +11,7 @@ router.get('/', async (req, res) => { // Get all recipes
     }
 })
 
-router.get('/:id', async(req, res) => { // Get recipe by ID
+router.get('/:id', async(req, res) => { // Get recipe by id
     try {
       const recipe = await Recipe.findByPk(req.params.id)
       res.send(recipe)
