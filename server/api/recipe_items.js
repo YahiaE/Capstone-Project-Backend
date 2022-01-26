@@ -2,18 +2,23 @@ const router = require('express').Router()
 const RecipeItems = require('../db/recipe_items')
 
 
-router.get('/', async (req, res) => { // Get all recipe items
+
+router.get('/list/:recipeId', async (req, res) => { // Get all recipe items of specific recipe
     try {
-      const recipe_items = await RecipeItems.findAll()
+      const recipe_items = await RecipeItems.findAll({
+        where: {
+          recipeId: req.params.recipeId
+        }
+      })
       res.send(recipe_items)
     } catch (error) {
       res.send(error.message)
     }
 })
 
-router.get('/:id', async(req, res) => { // Get recipe items by id
+router.get('/', async(req, res) => { // Get recipe items by id
     try {
-      const recipe_item = await RecipeItems.findByPk(req.params.id)
+      const recipe_item = await RecipeItems.findAll();
       res.send(recipe_item)
     } catch (error) {
       res.send(error.message)

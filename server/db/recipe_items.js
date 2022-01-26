@@ -1,21 +1,13 @@
 const Sequelize = require('sequelize')
 const db = require('./connection')
+const Recipe = require('../db/recipe')
 
 const RecipeItems = db.define('recipe_items', {
-  id: {
-    type: Sequelize.INTEGER,
-    allowNull: false,
-    primaryKey: true
-  },
-  quantity: {
-    type: Sequelize.INTEGER,
+  ingredient: {
+    type: Sequelize.STRING,
     allowNull: false
   },
- recipe_id: {
-    type: Sequelize.INTEGER,
-    allowNull: true
-  },
-  ingredient_id: {
+  quantity: {
     type: Sequelize.INTEGER,
     allowNull: false
   }
