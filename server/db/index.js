@@ -4,7 +4,8 @@ const RecipeItems = require('./recipe_items')
 
 // associations
 
-Recipe.hasMany(RecipeItems, {allowNull:false, foreignKey: 'recipe_id'})
+Recipe.hasMany(RecipeItems);
+RecipeItems.belongsTo(Recipe);
 
 module.exports = {
   db,
