@@ -15,7 +15,7 @@ const Recipe = db.define('recipe', {
     allowNull: false
   },
   time: {
-    type: Sequelize.DATEONLY,
+    type: Sequelize.STRING,
     allowNull: false
   },
   steps: {
