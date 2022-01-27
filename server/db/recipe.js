@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('./connection')
 
 const Recipe = db.define('recipe', {
-  recipe_name: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false
   },
@@ -15,7 +15,7 @@ const Recipe = db.define('recipe', {
     allowNull: false
   },
   time: {
-    type: Sequelize.DATEONLY,
+    type: Sequelize.STRING,
     allowNull: false
   },
   steps: {
