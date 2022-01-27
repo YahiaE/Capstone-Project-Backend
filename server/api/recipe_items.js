@@ -25,7 +25,7 @@ router.get('/', async(req, res) => { // Get all recipe items
     }
 }) 
 
-router.post('/', async(req, res) => { // Post a recipe item
+router.post('/addIngredients', async(req, res) => { // Post a recipe item
     try {
       const newRecipeItem = await RecipeItems.create(req.body)
       res.json(newRecipeItem)

@@ -2,7 +2,7 @@ const Sequelize = require('sequelize')
 const db = require('./connection')
 
 const Recipe = db.define('recipe', {
-  recipe_name: {
+  name: {
     type: Sequelize.STRING,
     allowNull: false
   },

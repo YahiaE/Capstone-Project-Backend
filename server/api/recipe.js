@@ -20,7 +20,7 @@ router.get('/:id', async(req, res) => { // Get recipe by id
     }
 }) 
 
-router.post('/', async(req, res) => { // Post recipe
+router.post('/addRecipe', async(req, res) => { // Post recipe
     try {
       const newRecipe = await Recipe.create(req.body)
       res.json(newRecipe)
