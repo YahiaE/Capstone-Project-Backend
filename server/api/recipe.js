@@ -1,6 +1,17 @@
 const router = require('express').Router()
 const Recipe = require('../db/recipe')
 
+router.get('/getRecent', async (req, res) => {  // Get most recent recipe | http://localhost:3001/recipe/getRecent
+  try {
+    const recipes = await Recipe.findOne({
+      order: [ [ 'id', 'DESC' ]],
+      });
+      console.log("Most Recent Id: " + recipes.id);
+    res.send(recipes)
+  } catch (error) {
+    res.send(error.message)
+  }
+})
 
 router.get('/', async (req, res) => { // Get all recipes | http://localhost:3001/recipe/
     try {
