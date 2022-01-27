@@ -10,12 +10,8 @@ const RecipeItems = db.define('recipe_items', {
   quantity: {
     type: Sequelize.INTEGER,
     allowNull: false
-  },
-  recipeId: {
-    type: Sequelize.INTEGER,
-    allowNull: false
   }
-  // Must add foreign key called RecipeId
+  // Must add foreign key called RecipeId when creating objects
 })
 
 module.exports = RecipeItems
