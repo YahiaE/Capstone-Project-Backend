@@ -22,13 +22,27 @@ router.get('/', async (req, res) => { // Get all recipes | http://localhost:3001
     }
 })
 
+
+
 router.get('/:id', async(req, res) => { // Get recipe by id | http://localhost:3001/recipe/(id here)
-    try {
-      const recipe = await Recipe.findByPk(req.params.id)
-      res.send(recipe)
-    } catch (error) {
-      res.send(error.message)
-    }
+  try {
+    const recipe = await Recipe.findByPk(req.params.id)
+    res.send(recipe)
+  } catch (error) {
+    res.send(error.message)
+  }
+}) 
+
+router.delete('/remove/:id', async(req, res) => { // Delete recipe by id | http://localhost:3001/recipe/(id here) and then delete
+  try {
+    const recipe = await Recipe.findByPk(req.params.id)
+    
+    await recipe.destroy();
+    // await recipe_items.destroy();
+    console.log("Deletion Successful");
+  } catch (error) {
+    res.send(error.message)
+  }
 }) 
 
 router.post('/addRecipe', async(req, res) => { // Post recipe | http://localhost:3001/recipe and then post
