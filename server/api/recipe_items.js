@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const RecipeItems = require('../db/recipe_items')
 
+const Recipe = require('../db/recipe')
 
 
 router.get('/list/:recipeId', async (req, res) => { // Get all recipe items of specific recipe through id | http://localhost:3001/recipe_items/list/(id here)
