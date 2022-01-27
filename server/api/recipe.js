@@ -31,7 +31,7 @@ router.get('/:id', async(req, res) => { // Get recipe by id | http://localhost:3
     }
 }) 
 
-router.post('/', async(req, res) => { // Post recipe | http://localhost:3001/recipe and then post
+router.post('/addRecipe', async(req, res) => { // Post recipe | http://localhost:3001/recipe and then post
     try {
       const newRecipe = await Recipe.create(req.body)
       res.json(newRecipe)
