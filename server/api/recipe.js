@@ -42,8 +42,9 @@ router.delete('/remove/:id', async(req, res) => { // Delete recipe by id | http:
         recipeId: req.params.id
       }
     })
-    await recipe.destroy();
-    await recipe_items.destroy();
+    await recipe.destroy({ truncate: true, restartIdentity: true })
+    await recipe_items.destroy({ truncate: true, restartIdentity: true });
+    
     console.log("Deletion Successful");
   } catch (error) {
     res.send(error.message)
