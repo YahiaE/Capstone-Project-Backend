@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const Recipe = require('../db/recipe')
-const RecipeItem = require('../db/recipe_items')
+const RecipeItems = require('../db/recipe_items')
 
 router.get('/getRecent', async (req, res) => {  // Get most recent recipe | http://localhost:3001/recipe/getRecent
   try {
